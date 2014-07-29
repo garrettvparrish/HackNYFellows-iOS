@@ -43,10 +43,6 @@
 		3681E23619873DC40001A211 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3681E23519873DC40001A211 /* Security.framework */; };
 		3681E23819873DC90001A211 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3681E23719873DC90001A211 /* StoreKit.framework */; };
 		3681E23A19873DCF0001A211 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3681E23919873DCF0001A211 /* SystemConfiguration.framework */; };
-		36BA6EB819845D9200A81A57 /* MPPallaxLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BA6EB519845D9200A81A57 /* MPPallaxLayout.m */; };
-		36BA6EB919845D9200A81A57 /* MPPallaxLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BA6EB519845D9200A81A57 /* MPPallaxLayout.m */; };
-		36BA6EBA19845D9200A81A57 /* MPParallaxCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BA6EB719845D9200A81A57 /* MPParallaxCollectionViewCell.m */; };
-		36BA6EBB19845D9200A81A57 /* MPParallaxCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BA6EB719845D9200A81A57 /* MPParallaxCollectionViewCell.m */; };
 		36BA6ECF19845F0200A81A57 /* 1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 36BA6EC219845F0200A81A57 /* 1.JPG */; };
 		36BA6ED019845F0200A81A57 /* 1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 36BA6EC219845F0200A81A57 /* 1.JPG */; };
 		36BA6ED119845F0200A81A57 /* 2.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 36BA6EC319845F0200A81A57 /* 2.JPG */; };
@@ -170,10 +166,6 @@
 		3681E23519873DC40001A211 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3681E23719873DC90001A211 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3681E23919873DCF0001A211 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		36BA6EB419845D9200A81A57 /* MPPallaxLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPPallaxLayout.h; sourceTree = "<group>"; };
-		36BA6EB519845D9200A81A57 /* MPPallaxLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPPallaxLayout.m; sourceTree = "<group>"; };
-		36BA6EB619845D9200A81A57 /* MPParallaxCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPParallaxCollectionViewCell.h; sourceTree = "<group>"; };
-		36BA6EB719845D9200A81A57 /* MPParallaxCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPParallaxCollectionViewCell.m; sourceTree = "<group>"; };
 		36BA6EC219845F0200A81A57 /* 1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.JPG; sourceTree = "<group>"; };
 		36BA6EC319845F0200A81A57 /* 2.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.JPG; sourceTree = "<group>"; };
 		36BA6EC419845F0200A81A57 /* 3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.JPG; sourceTree = "<group>"; };
@@ -404,22 +396,10 @@
 			name = "Images for Interviews";
 			sourceTree = "<group>";
 		};
-		36BA6EBC19845D9800A81A57 /* MPParallax */ = {
-			isa = PBXGroup;
-			children = (
-				36BA6EB419845D9200A81A57 /* MPPallaxLayout.h */,
-				36BA6EB519845D9200A81A57 /* MPPallaxLayout.m */,
-				36BA6EB619845D9200A81A57 /* MPParallaxCollectionViewCell.h */,
-				36BA6EB719845D9200A81A57 /* MPParallaxCollectionViewCell.m */,
-			);
-			name = MPParallax;
-			sourceTree = "<group>";
-		};
 		36BA6EBD19845DA000A81A57 /* External Libraries Used in App */ = {
 			isa = PBXGroup;
 			children = (
 				36CA6BE819846A5A00BA4485 /* CRMotionView */,
-				36BA6EBC19845D9800A81A57 /* MPParallax */,
 			);
 			name = "External Libraries Used in App";
 			sourceTree = "<group>";
@@ -617,12 +597,10 @@
 			files = (
 				36CA6BEF19846FE100BA4485 /* ViewController.m in Sources */,
 				3681E2261985E4890001A211 /* customCell.m in Sources */,
-				36BA6EB819845D9200A81A57 /* MPPallaxLayout.m in Sources */,
 				361010CE197F66C800B84791 /* AppDelegate.m in Sources */,
 				36CA6BE419846A5600BA4485 /* CRMotionView.m in Sources */,
 				36CA6BE619846A5600BA4485 /* UIScrollView+CRScrollIndicator.m in Sources */,
 				3681E21319855EDA0001A211 /* UIImage+ImageEffects.m in Sources */,
-				36BA6EBA19845D9200A81A57 /* MPParallaxCollectionViewCell.m in Sources */,
 				36CA6BF9198476C900BA4485 /* ContentView.m in Sources */,
 				361010CA197F66C800B84791 /* main.m in Sources */,
 				3681E2221985D8B20001A211 /* MenuView.m in Sources */,
@@ -635,9 +613,7 @@
 			files = (
 				36CA6BFA198476C900BA4485 /* ContentView.m in Sources */,
 				36CA6BF019846FE100BA4485 /* ViewController.m in Sources */,
-				36BA6EBB19845D9200A81A57 /* MPParallaxCollectionViewCell.m in Sources */,
 				3681E2271985E4890001A211 /* customCell.m in Sources */,
-				36BA6EB919845D9200A81A57 /* MPPallaxLayout.m in Sources */,
 				361010E9197F66C800B84791 /* HackNYTests.m in Sources */,
 				3681E2231985D8B20001A211 /* MenuView.m in Sources */,
 				36CA6BE719846A5600BA4485 /* UIScrollView+CRScrollIndicator.m in Sources */,
