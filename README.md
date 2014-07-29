@@ -4,7 +4,7 @@ HackNYFellows
 Hello everyone, 
 
 
-<html><img style=“width:800px;” src=“https://raw.githubusercontent.com/garrettvparrish/HackNYFellows-iOS/master/banner.jpg”</img></html>
+<img style=“width:800px;” src=“https://raw.githubusercontent.com/garrettvparrish/HackNYFellows-iOS/master/banner.jpg”</img>
 
 This app is the repository for the HackNY Fellows app. This product allows past, present and future fellows to connect. It also exists to educate anyone about the members of the HackNY fellows, where they worked, and who they are. 
 
