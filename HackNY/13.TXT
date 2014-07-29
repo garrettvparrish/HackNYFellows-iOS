@@ -1,0 +1,23 @@
+Goes to MIT works at MongoDB in Times Square
+
+Where'd you grow up?
+
+"I was born in Los Angelas. My parents broke up when I was young and my mom remarried. Growing up, my mom was a housekeeper. We moved to Maryland and my mom commuted back and forth to Washington DC working two jobs. Growing up, I was the only one who learned English proficiently. When I went to school, I had to speak English. Then in order to communicate with my parents, I had to speak Spanish.
+
+I remember when we got our first computer at the home when I was around 8 years old. My parents didn't know anything about the internet. for school, all our assignments were posted on the internet. I think my curiosity pushed me a lot to just explore what the computer did. I would tinker around with different things. At some point, my parents realized they could not help me as much as they wanted to. When I would do homework, they would watch me do it to make sure I did it but they knew they could not help me learn it."
+
+In high school, I went to a very academically challenging magnet school. Everyone around me had it figured out. They had 4.0s and 2400 SAT scores. When it came time to apply to college, I was a first generation college student. My parents knew they could not help me a lot, but they promised to sign any forms and pay for tests. After talking to colleges, all of the colleges I got into promised to give me most of the cost off. I ended up getting into Stanford, Brown and a couple other places. They saw my financial situation and were willing to help me.
+
+I chose MIT because I wanted to be at a place where I could just explore and absorb information. I tried to do that in high school but MIT was really a place where I could meet people and be somewhat free to explore things."
+
+What's your biggest struggle right now?
+
+"I want to take advantage of the time I have during my last year at MIT. A lot of what affected me growing up was my mom's atitude towards me. She wanted me to have a better life, so she did everything she could to do that. I feel an obligation to help her and give back in the work I do in the future."
+
+What advice would you give to the person you were 4 years ago?
+
+"Four years ago, I was a rising senior in high school and planning out where I would apply to college. Knowing everything will work out in the end is very important. Because no matter which way life turns, everything will be okay in the end."
+
+Where do you see yourself in 4 years?
+
+"I was an intern at Tumblr last summer; I am doing HackNY and MongoDB this summer. In the future, I want to be working somewhere with data science. Alternatively, I love music and the impact music can have on people. My dream job would be Spotify. They are doing some really interesting stuff with machine learning and recommendations. What I'm doing at MongoDB right now is more server side than I would like. At my heart, I am a web developer so I want to build products that people find value in."
