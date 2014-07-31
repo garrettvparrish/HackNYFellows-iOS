@@ -6,19 +6,24 @@
 //  Copyright (c) 2014 Heartwood Labs. All rights reserved.
 //
 
-#import "TableViewController.h"
+#import "ViewController.h"
+#import "TableViewCell.h"
+#import "KRStandardStuff.h"
+#import "MainViewController.h"
 
-@interface TableViewController ()
+#define kLogoXPosition 160-(250/4)
+#define kLogoTopPadding (200/2)-60
+
+@interface ViewController ()
 
 @end
 
-@implementation TableViewController
+@implementation ViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -26,94 +31,155 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView.delegate = self;
+    [self.tableView registerClass:[TableViewCell class] forCellReuseIdentifier:@"cell"];
+    self.tableView.separatorColor = [KRStandardStuff mainColor];
+    self.view.backgroundColor = [KRStandardStuff mainColor];
+    [self makePageViewerInBackground];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    faderLayer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, self.view.bounds.size.height+200)];
+    faderLayer.backgroundColor = [UIColor blackColor];
+    faderLayer.alpha = 0.0;
+    faderLayer.userInteractionEnabled = NO;
+    [self.view addSubview:faderLayer];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buttonSetHidden:) name:@"buttonSetHidden" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buttonSetVisible:) name:@"buttonSetVisible" object:nil];
+
+
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)showSection {
+    
+    [self.view bringSubviewToFront:sv];
+    
+    [UIView animateWithDuration:0.5 animations:^(void) {
+        [sv setContentOffset:CGPointMake(320, 0)];
+    }];
+    
+    
+}
+
+- (void)makePageViewerInBackground {
+    [self.tableView setContentOffset:CGPointMake(0, 0)];
+    
+    sv = [[UIScrollView alloc] initWithFrame:self.view.frame];
+    sv.contentSize = CGSizeMake(320*2, self.view.bounds.size.height);
+    sv.pagingEnabled = YES;
+    [sv setDelegate:self];
+    [sv setShowsHorizontalScrollIndicator:NO];
+    [self.view addSubview:sv];
+    
+    MainViewController *vc = [[MainViewController alloc] init];
+    vc.view.frame = CGRectMake(320, 0, 320, self.view.bounds.size.height);
+    [sv addSubview:vc.view];
+    [self addChildViewController:vc];
+    [vc didMoveToParentViewController:self];
+    
+    
+    UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:vc.view.bounds];
+    vc.view.layer.masksToBounds = NO;
+    vc.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    vc.view.layer.shadowOffset = CGSizeMake(0.0f, 5.0f);
+    vc.view.layer.shadowOpacity = 1.0f;
+    vc.view.layer.shadowPath = shadowPath.CGPath;
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 66, self.view.bounds.size.height)];
+    view.userInteractionEnabled = YES;
+    [vc.view addSubview:view];
+    
+    menu = [UIButton buttonWithType:UIButtonTypeCustom];
+    [menu setImage:[UIImage imageNamed:@"menu.png"] forState:UIControlStateNormal];
+    [menu setImage:[UIImage imageNamed:@"menuDark.png"] forState:UIControlStateHighlighted];
+    [menu setFrame:CGRectMake(25, 20, 30, 30)];
+    [menu addTarget:self action:@selector(menu:) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:menu];
+    
+    [self.view sendSubviewToBack:sv];
+}
+
+- (void)menu:(id)sender {
+    [UIView animateWithDuration:0.5 animations:^(void) {
+        [sv setContentOffset:CGPointMake(0,0)];
+    } completion:^(BOOL finished) {
+        [self.view sendSubviewToBack:sv];
+        
+    }];
 }
 
 #pragma mark - Table view data source
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 200;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
+    view.backgroundColor = [KRStandardStuff mainColor];
+    UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(kLogoXPosition, kLogoTopPadding, 125, 120)];
+    logo.image = [UIImage imageNamed:@"logo.png"];
+    [view addSubview:logo];
+    
+    
+    faderLayer2 = [[UIView alloc] initWithFrame:CGRectMake(0, -200, 320, self.view.bounds.size.height+200)];
+    faderLayer.backgroundColor = [UIColor blackColor];
+    faderLayer.alpha = 0.0;
+    faderLayer.userInteractionEnabled = NO;
+    [self.view addSubview:faderLayer];
+    
+    return view;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [[KRStandardStuff numberOfYearsOfHackNY] intValue];
 }
 
-/*
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [self showSection];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.textLabel.text = [[KRStandardStuff arrayOfYears] objectAtIndex:indexPath.row];
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    float value = (320-scrollView.contentOffset.x)/320;
+    faderLayer.alpha = 0.7-value;
+    faderLayer2.alpha = 0.7-value;
+    
+    if (value > 0.99) {
+        [self.view sendSubviewToBack:sv];
+    }
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (void)buttonSetHidden:(NSNotification *)notif {
+    [UIView animateWithDuration:0.4 animations:^(void) {
+        menu.alpha = 0.0;
+    }];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
+- (void)buttonSetVisible:(NSNotification *)notif {
+    [UIView animateWithDuration:0.4 animations:^(void) {
+        menu.alpha = 1.0;
+    }];
 }
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

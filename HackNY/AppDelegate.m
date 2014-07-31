@@ -7,7 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
 #import <Parse/Parse.h>
+#import "User.h"
+#import "GroupOfUsers.h"
 
 @implementation AppDelegate
 
@@ -16,7 +19,18 @@
     [Parse setApplicationId:@"ak54Y7fvYqULpElUjAyWgb4oTB6hRXL3bzOUQlC7"
                   clientKey:@"l2qrTMDjP5mHNjZJ3AeBMaoq7qhaVICVur7YV92r"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    // Override point for customization after application launch.
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"fellows"];
+    [query whereKey:@"approved" equalTo:@YES];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                GroupOfUsers *groupOfUsers = [[GroupOfUsers alloc] init];
+                [groupOfUsers addObject:[User configureUserWithPFObject:object]];
+            }
+        }
+    }];
+   
     return YES;
 }
 							

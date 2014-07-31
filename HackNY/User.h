@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
-@interface Users : NSObject
+@interface User : NSObject
+
+@property (nonatomic, retain) NSString *objectID;
+@property (nonatomic, retain) NSString *school;
+@property (nonatomic, retain) NSString *company;
+@property (nonatomic, retain) NSString *q1;
+
++ (User *)configureUserWithPFObject:(PFObject *)object;
 
 @end

@@ -1,13 +1,24 @@
 //
-//  MainViewController.h
-//  HackNY
+//  ViewController.h
+//  CRMotionViewDemo
 //
-//  Created by KyleR on 7/30/14.
-//  Copyright (c) 2014 Heartwood Labs. All rights reserved.
+//  Created by Christian Roman on 06/02/14.
+//  Copyright (c) 2014 Christian Roman. All rights reserved.
 //
 
-#import <Parse/Parse.h>
+#import <UIKit/UIKit.h>
+#import "CRMotionView.h"
+#import "MenuView.h"
 
-@interface MainViewController : PFQueryTableViewController
+@interface MainViewController : UIViewController {
+    UIScrollView *sv;
+    NSDictionary *dictionary;
+    NSMutableArray *array;
+    NSMutableArray *numbers;
+    UIScrollView *contentScroll;
+    CRMotionView *motionView;
+    float currentPos;
+    MenuView *menu;
+}
 
 @end

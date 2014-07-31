@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface KRStandardAppearance : NSObject
+@interface KRStandardStuff : NSObject
+
++ (UIColor *)mainColor;
++ (UIColor *)lightMainColor;
++ (NSNumber *)currentYear;
++ (NSNumber *)numberOfYearsOfHackNY;
++ (NSMutableArray *)arrayOfYears;
 
 @end

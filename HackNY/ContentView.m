@@ -51,13 +51,7 @@
     [textLabel setTextColor:[UIColor whiteColor]];
     textLabel.numberOfLines = 0;
     [contentScroll addSubview:textLabel];
-    
-    menu = [UIButton buttonWithType:UIButtonTypeCustom];
-    [menu setImage:[UIImage imageNamed:@"menu.png"] forState:UIControlStateNormal];
-    [menu setImage:[UIImage imageNamed:@"menuDark.png"] forState:UIControlStateHighlighted];
-    [menu setFrame:CGRectMake(25, 20, 30, 30)];
-    [menu addTarget:self action:@selector(menu:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:menu];
+
     
 
 }
@@ -105,23 +99,16 @@
         imageView.alpha = 0.2+(scrollView.contentOffset.y/self.bounds.size.height);
         if (scrollView.contentOffset.y > (self.bounds.size.height/2)) {
             [UIView animateWithDuration:0.3 animations:^(void) {
-                menu.alpha = 0.0;
-                menu.userInteractionEnabled = NO;
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"buttonSetHidden" object:nil];
             }];
         } else {
             [UIView animateWithDuration:0.3 animations:^(void) {
-                menu.alpha = 1.0;
-                menu.userInteractionEnabled = YES;
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"buttonSetVisible" object:nil];
             }];
         }
     }
     
 }
-
-- (void)menu:(id)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"showMenu" object:nil];
-}
-
 
 /*
 // Only override drawRect: if you perform custom drawing.

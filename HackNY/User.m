@@ -6,8 +6,18 @@
 //  Copyright (c) 2014 Heartwood Labs. All rights reserved.
 //
 
-#import "Users.h"
+#import "User.h"
+#import <Parse/Parse.h>
 
-@implementation Users
+@implementation User
+
++ (User *)configureUserWithPFObject:(PFObject *)object {
+    User *user = [[User alloc] init];
+    user.objectID = object.objectId;
+    user.school = object[@"school"];
+    user.company = object[@"company"];
+    user.q1 = object[@"q1"];
+    return user;
+}
 
 @end

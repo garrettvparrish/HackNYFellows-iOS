@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainViewController.h"
 
-@interface TableViewController : UITableViewController
+@interface ViewController : UITableViewController {
+    UIScrollView *sv;
+    UIView *faderLayer;
+    UIView *faderLayer2;
+    UIButton *menu;
+}
 
 @end
