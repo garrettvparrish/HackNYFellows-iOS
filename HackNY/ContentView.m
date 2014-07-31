@@ -73,21 +73,21 @@
     
     UIButton *share = [UIButton buttonWithType:UIButtonTypeCustom];
     [share setTitle:@"Share" forState:UIControlStateNormal];
-    [share setFont:[UIFont fontWithName:@"HelveticaNeue" size:20]];
+    [share.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:20]];
     [share setTitleColor:[UIColor colorWithRed:19/255.0 green:144/255.0 blue:255/255.0 alpha:1.0] forState:UIControlStateNormal];
     [share setFrame:CGRectMake(0, contentScroll.contentSize.height-52, 100, 40)];
     [contentScroll addSubview:share];
     
     UIButton *contact = [UIButton buttonWithType:UIButtonTypeCustom];
     [contact setTitle:@"Contact" forState:UIControlStateNormal];
-    [contact setFont:[UIFont fontWithName:@"HelveticaNeue" size:20]];
+    [contact.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:20]];
     [contact setTitleColor:[UIColor colorWithRed:19/255.0 green:144/255.0 blue:255/255.0 alpha:1.0] forState:UIControlStateNormal];
     [contact setFrame:CGRectMake(100, contentScroll.contentSize.height-52, 100, 40)];
     [contentScroll addSubview:contact];
     
     UIButton *github = [UIButton buttonWithType:UIButtonTypeCustom];
     [github setTitle:@"Github" forState:UIControlStateNormal];
-    [github setFont:[UIFont fontWithName:@"HelveticaNeue" size:20]];
+    [github.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:20]];
     [github setTitleColor:[UIColor colorWithRed:19/255.0 green:144/255.0 blue:255/255.0 alpha:1.0] forState:UIControlStateNormal];
     [github setFrame:CGRectMake(200, contentScroll.contentSize.height-52, 100, 40)];
     [contentScroll addSubview:github];

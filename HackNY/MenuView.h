@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MenuView : UIViewController <UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate> {
+@interface MenuView : UIViewController <UICollectionViewDelegateFlowLayout, UICollectionViewDelegate,UICollectionViewDataSource, UIScrollViewDelegate> {
 
 }
 @property (nonatomic, retain)  UIImageView *imageView;

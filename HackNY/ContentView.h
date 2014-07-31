@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ContentView : UIView {
+@interface ContentView : UIView <UIScrollViewDelegate> {
     UIView *black;
     UIScrollView *contentScroll;
     UIButton *menu;

@@ -131,6 +131,7 @@
 		36E600281989F00A007462BA /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 36E600261989F00A007462BA /* logo.png */; };
 		36E6002D1989F33C007462BA /* KRStandardStuff.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E6002C1989F33C007462BA /* KRStandardStuff.m */; };
 		36E6002E1989F33C007462BA /* KRStandardStuff.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E6002C1989F33C007462BA /* KRStandardStuff.m */; };
+		680913FD198ACAAF002D50D6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 680913FC198ACAAF002D50D6 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,6 +234,7 @@
 		36E600261989F00A007462BA /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		36E6002B1989F33C007462BA /* KRStandardStuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRStandardStuff.h; sourceTree = "<group>"; };
 		36E6002C1989F33C007462BA /* KRStandardStuff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRStandardStuff.m; sourceTree = "<group>"; };
+		680913FC198ACAAF002D50D6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +276,7 @@
 		361010B1197F66C800B84791 = {
 			isa = PBXGroup;
 			children = (
+				680913FC198ACAAF002D50D6 /* Default-568h@2x.png */,
 				361010C3197F66C800B84791 /* HackNY */,
 				361010E2197F66C800B84791 /* HackNYTests */,
 				361010BC197F66C800B84791 /* Frameworks */,
@@ -576,6 +579,7 @@
 				36CA6BFC19847C8B00BA4485 /* 13.TXT in Resources */,
 				36BA6EDD19845F0200A81A57 /* 8.JPG in Resources */,
 				36CA6C0219847F5200BA4485 /* 14.JPG in Resources */,
+				680913FD198ACAAF002D50D6 /* Default-568h@2x.png in Resources */,
 				36CA6BF51984734500BA4485 /* 10.JPG in Resources */,
 				36CA6C0519847F8D00BA4485 /* 14.TXT in Resources */,
 				36BA6ED119845F0200A81A57 /* 2.JPG in Resources */,

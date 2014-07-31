@@ -31,4 +31,12 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"closeMenu" object:nil];
 }
 
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 4;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return [[UICollectionViewCell alloc] init];
+}
+
 @end

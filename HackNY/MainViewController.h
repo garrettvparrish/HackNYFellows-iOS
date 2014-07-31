@@ -10,7 +10,7 @@
 #import "CRMotionView.h"
 #import "MenuView.h"
 
-@interface MainViewController : UIViewController {
+@interface MainViewController : UIViewController <UIScrollViewDelegate>{
     UIScrollView *sv;
     NSDictionary *dictionary;
     NSMutableArray *array;
