@@ -46,33 +46,31 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buttonSetHidden:) name:@"buttonSetHidden" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buttonSetVisible:) name:@"buttonSetVisible" object:nil];
 
-
 }
 
 - (void)showSection {
     
-    [self.view bringSubviewToFront:sv];
+    [self.view bringSubviewToFront:yearMenu];
     
     [UIView animateWithDuration:0.5 animations:^(void) {
-        [sv setContentOffset:CGPointMake(320, 0)];
+        [yearMenu setContentOffset:CGPointMake(320, 0)];
     }];
-    
-    
+
 }
 
 - (void)makePageViewerInBackground {
     [self.tableView setContentOffset:CGPointMake(0, 0)];
-    
-    sv = [[UIScrollView alloc] initWithFrame:self.view.frame];
-    sv.contentSize = CGSizeMake(320*2, self.view.bounds.size.height);
-    sv.pagingEnabled = YES;
-    [sv setDelegate:self];
-    [sv setShowsHorizontalScrollIndicator:NO];
-    [self.view addSubview:sv];
+
+    yearMenu = [[UIScrollView alloc] initWithFrame:self.view.frame];
+    yearMenu.contentSize = CGSizeMake(320*2, self.view.bounds.size.height);
+    yearMenu.pagingEnabled = YES;
+    [yearMenu setDelegate:self];
+    [yearMenu setShowsHorizontalScrollIndicator:NO];
+    [self.view addSubview:yearMenu];
     
     MainViewController *vc = [[MainViewController alloc] init];
     vc.view.frame = CGRectMake(320, 0, 320, self.view.bounds.size.height);
-    [sv addSubview:vc.view];
+    [yearMenu addSubview:vc.view];
     [self addChildViewController:vc];
     [vc didMoveToParentViewController:self];
     
@@ -95,14 +93,14 @@
     [menu addTarget:self action:@selector(menu:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:menu];
     
-    [self.view sendSubviewToBack:sv];
+    [self.view sendSubviewToBack:yearMenu];
 }
 
 - (void)menu:(id)sender {
     [UIView animateWithDuration:0.5 animations:^(void) {
-        [sv setContentOffset:CGPointMake(0,0)];
+        [yearMenu setContentOffset:CGPointMake(0,0)];
     } completion:^(BOOL finished) {
-        [self.view sendSubviewToBack:sv];
+        [self.view sendSubviewToBack:yearMenu];
         
     }];
 }
@@ -166,7 +164,7 @@
     faderLayer2.alpha = 0.7-value;
     
     if (value > 0.99) {
-        [self.view sendSubviewToBack:sv];
+        [self.view sendSubviewToBack:yearMenu];
     }
 }
 

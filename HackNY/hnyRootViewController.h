@@ -10,7 +10,7 @@
 #import "MainViewController.h"
 
 @interface hnyRootViewController : UITableViewController {
-    UIScrollView *sv;
+    UIScrollView *yearMenu;
     UIView *faderLayer;
     UIView *faderLayer2;
     UIButton *menu;
