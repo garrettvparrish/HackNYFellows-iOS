@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Heartwood Labs. All rights reserved.
 //
 
-#import "User.h"
+#import "HNFellow.h"
 #import <Parse/Parse.h>
 
-@implementation User
+@implementation HNFellow
 
-+ (User *)configureUserWithPFObject:(PFObject *)object {
-    User *user = [[User alloc] init];
++ (HNFellow *)configureUserWithPFObject:(PFObject *)object {
+    HNFellow *user = [[HNFellow alloc] init];
     user.objectID = object.objectId;
     user.school = object[@"school"];
     user.company = object[@"company"];

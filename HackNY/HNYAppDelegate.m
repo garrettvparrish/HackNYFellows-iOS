@@ -1,18 +1,19 @@
 //
-//  AppDelegate.m
+//  HNYAppDelegate.m
 //  HackNY
 //
 //  Created by KyleR on 7/22/14.
 //  Copyright (c) 2014 Heartwood Labs. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "HNYAppDelegate.h"
 #import "MainViewController.h"
 #import <Parse/Parse.h>
-#import "User.h"
-#import "GroupOfUsers.h"
+#import "HNFellow.h"
+#import "HNYear.h"
 
-@implementation AppDelegate
+
+@implementation HNYAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -22,11 +23,20 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"fellows"];
     [query whereKey:@"approved" equalTo:@YES];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    [query findObjectsInBackgroundWithBlock:^(NSArray *fellows, NSError *error) {
         if (!error) {
-            for (PFObject *object in objects) {
-                GroupOfUsers *groupOfUsers = [[GroupOfUsers alloc] init];
-                [groupOfUsers addObject:[User configureUserWithPFObject:object]];
+            NSMutableDictionary *hackNYYears = [[NSMutableDictionary alloc] init];
+            for (PFObject *fellow in fellows) {
+
+                NSNumber *year = [NSNumber numberWithInt:[[fellow objectForKey:@"year"] intValue]];
+                NSString *yearKey = [NSString stringWithFormat:@"%i", [year intValue]];
+                if (![hackNYYears objectForKey:yearKey]) {
+                    [hackNYYears setObject:[[NSMutableArray alloc] init] forKey:yearKey];
+                }
+                [[hackNYYears objectForKey:yearKey] addObject:fellow];
+
+                HNYear *HNYear = [[HNYear alloc] init];
+                [HNYear addObject:[HNFellow configureUserWithPFObject:object]];
             }
         }
     }];

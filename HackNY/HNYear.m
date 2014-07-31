@@ -1,13 +1,13 @@
 //
-//  GroupOfUsers.m
+//  HNYear.m
 //  HackNY
 //
 //  Created by KyleR on 7/30/14.
 //  Copyright (c) 2014 Heartwood Labs. All rights reserved.
 //
 
-#import "GroupOfUsers.h"
+#import "HNYear.h"
 
-@implementation GroupOfUsers
+@implementation HNYear
 
 @end

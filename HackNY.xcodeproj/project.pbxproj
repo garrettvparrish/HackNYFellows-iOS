@@ -9,16 +9,16 @@
 /* Begin PBXBuildFile section */
 		360139C31989E52F0088EA5E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 360139C21989E52F0088EA5E /* MainViewController.m */; };
 		360139C41989E52F0088EA5E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 360139C21989E52F0088EA5E /* MainViewController.m */; };
-		360139C71989E5B30088EA5E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 360139C61989E5B30088EA5E /* User.m */; };
-		360139C81989E5B30088EA5E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 360139C61989E5B30088EA5E /* User.m */; };
-		360139CB1989E6B20088EA5E /* GroupOfUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = 360139CA1989E6B20088EA5E /* GroupOfUsers.m */; };
-		360139CC1989E6B20088EA5E /* GroupOfUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = 360139CA1989E6B20088EA5E /* GroupOfUsers.m */; };
+		360139C71989E5B30088EA5E /* HNFellow.m in Sources */ = {isa = PBXBuildFile; fileRef = 360139C61989E5B30088EA5E /* HNFellow.m */; };
+		360139C81989E5B30088EA5E /* HNFellow.m in Sources */ = {isa = PBXBuildFile; fileRef = 360139C61989E5B30088EA5E /* HNFellow.m */; };
+		360139CB1989E6B20088EA5E /* HNYear.m in Sources */ = {isa = PBXBuildFile; fileRef = 360139CA1989E6B20088EA5E /* HNYear.m */; };
+		360139CC1989E6B20088EA5E /* HNYear.m in Sources */ = {isa = PBXBuildFile; fileRef = 360139CA1989E6B20088EA5E /* HNYear.m */; };
 		361010BE197F66C800B84791 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 361010BD197F66C800B84791 /* Foundation.framework */; };
 		361010C0197F66C800B84791 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 361010BF197F66C800B84791 /* CoreGraphics.framework */; };
 		361010C2197F66C800B84791 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 361010C1197F66C800B84791 /* UIKit.framework */; };
 		361010C8197F66C800B84791 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 361010C6197F66C800B84791 /* InfoPlist.strings */; };
 		361010CA197F66C800B84791 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 361010C9197F66C800B84791 /* main.m */; };
-		361010CE197F66C800B84791 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 361010CD197F66C800B84791 /* AppDelegate.m */; };
+		361010CE197F66C800B84791 /* HNYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 361010CD197F66C800B84791 /* HNYAppDelegate.m */; };
 		361010D1197F66C800B84791 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 361010CF197F66C800B84791 /* Main.storyboard */; };
 		361010D6197F66C800B84791 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 361010D5197F66C800B84791 /* Images.xcassets */; };
 		361010DD197F66C800B84791 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 361010DC197F66C800B84791 /* XCTest.framework */; };
@@ -147,10 +147,10 @@
 /* Begin PBXFileReference section */
 		360139C11989E52F0088EA5E /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		360139C21989E52F0088EA5E /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		360139C51989E5B30088EA5E /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		360139C61989E5B30088EA5E /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		360139C91989E6B20088EA5E /* GroupOfUsers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupOfUsers.h; sourceTree = "<group>"; };
-		360139CA1989E6B20088EA5E /* GroupOfUsers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupOfUsers.m; sourceTree = "<group>"; };
+		360139C51989E5B30088EA5E /* HNFellow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNFellow.h; sourceTree = "<group>"; };
+		360139C61989E5B30088EA5E /* HNFellow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNFellow.m; sourceTree = "<group>"; };
+		360139C91989E6B20088EA5E /* HNYear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNYear.h; sourceTree = "<group>"; };
+		360139CA1989E6B20088EA5E /* HNYear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNYear.m; sourceTree = "<group>"; };
 		361010BA197F66C800B84791 /* HackNY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackNY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		361010BD197F66C800B84791 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		361010BF197F66C800B84791 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -159,8 +159,8 @@
 		361010C7197F66C800B84791 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		361010C9197F66C800B84791 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		361010CB197F66C800B84791 /* HackNY-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackNY-Prefix.pch"; sourceTree = "<group>"; };
-		361010CC197F66C800B84791 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		361010CD197F66C800B84791 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		361010CC197F66C800B84791 /* HNYAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNYAppDelegate.h; sourceTree = "<group>"; };
+		361010CD197F66C800B84791 /* HNYAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNYAppDelegate.m; sourceTree = "<group>"; };
 		361010D0197F66C800B84791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		361010D5197F66C800B84791 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		361010DB197F66C800B84791 /* HackNYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackNYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -318,8 +318,8 @@
 		361010C3197F66C800B84791 /* HackNY */ = {
 			isa = PBXGroup;
 			children = (
-				361010CC197F66C800B84791 /* AppDelegate.h */,
-				361010CD197F66C800B84791 /* AppDelegate.m */,
+				361010CC197F66C800B84791 /* HNYAppDelegate.h */,
+				361010CD197F66C800B84791 /* HNYAppDelegate.m */,
 				361010CF197F66C800B84791 /* Main.storyboard */,
 				36E6002A1989F0A7007462BA /* ViewControllers and Views */,
 				36E6001E1989EEC3007462BA /* Objects */,
@@ -467,10 +467,10 @@
 		36E6001E1989EEC3007462BA /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				360139C51989E5B30088EA5E /* User.h */,
-				360139C61989E5B30088EA5E /* User.m */,
-				360139C91989E6B20088EA5E /* GroupOfUsers.h */,
-				360139CA1989E6B20088EA5E /* GroupOfUsers.m */,
+				360139C51989E5B30088EA5E /* HNFellow.h */,
+				360139C61989E5B30088EA5E /* HNFellow.m */,
+				360139C91989E6B20088EA5E /* HNYear.h */,
+				360139CA1989E6B20088EA5E /* HNYear.m */,
 				36E6002B1989F33C007462BA /* KRStandardStuff.h */,
 				36E6002C1989F33C007462BA /* KRStandardStuff.m */,
 			);
@@ -676,13 +676,13 @@
 				36E6002D1989F33C007462BA /* KRStandardStuff.m in Sources */,
 				36E6001C1989ED76007462BA /* ViewController.m in Sources */,
 				36E600211989EED2007462BA /* TableViewCell.m in Sources */,
-				361010CE197F66C800B84791 /* AppDelegate.m in Sources */,
+				361010CE197F66C800B84791 /* HNYAppDelegate.m in Sources */,
 				36CA6BE419846A5600BA4485 /* CRMotionView.m in Sources */,
-				360139CB1989E6B20088EA5E /* GroupOfUsers.m in Sources */,
+				360139CB1989E6B20088EA5E /* HNYear.m in Sources */,
 				36CA6BE619846A5600BA4485 /* UIScrollView+CRScrollIndicator.m in Sources */,
 				360139C31989E52F0088EA5E /* MainViewController.m in Sources */,
 				3681E21319855EDA0001A211 /* UIImage+ImageEffects.m in Sources */,
-				360139C71989E5B30088EA5E /* User.m in Sources */,
+				360139C71989E5B30088EA5E /* HNFellow.m in Sources */,
 				36CA6BF9198476C900BA4485 /* ContentView.m in Sources */,
 				361010CA197F66C800B84791 /* main.m in Sources */,
 				3681E2221985D8B20001A211 /* MenuView.m in Sources */,
@@ -694,12 +694,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				36CA6BFA198476C900BA4485 /* ContentView.m in Sources */,
-				360139CC1989E6B20088EA5E /* GroupOfUsers.m in Sources */,
+				360139CC1989E6B20088EA5E /* HNYear.m in Sources */,
 				361010E9197F66C800B84791 /* HackNYTests.m in Sources */,
 				36E600221989EED2007462BA /* TableViewCell.m in Sources */,
 				3681E2231985D8B20001A211 /* MenuView.m in Sources */,
 				36E6001D1989ED76007462BA /* ViewController.m in Sources */,
-				360139C81989E5B30088EA5E /* User.m in Sources */,
+				360139C81989E5B30088EA5E /* HNFellow.m in Sources */,
 				360139C41989E52F0088EA5E /* MainViewController.m in Sources */,
 				36CA6BE719846A5600BA4485 /* UIScrollView+CRScrollIndicator.m in Sources */,
 				36E6002E1989F33C007462BA /* KRStandardStuff.m in Sources */,

@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  HNYAppDelegate.h
 //  HackNY
 //
 //  Created by KyleR on 7/22/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface HNYAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

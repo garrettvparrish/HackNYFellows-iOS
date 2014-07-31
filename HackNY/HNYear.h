@@ -1,5 +1,5 @@
 //
-//  GroupOfUsers.h
+//  HNYear.h
 //  HackNY
 //
 //  Created by KyleR on 7/30/14.
@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GroupOfUsers : NSMutableArray
+@interface HNYear : NSMutableArray
 
 @end
