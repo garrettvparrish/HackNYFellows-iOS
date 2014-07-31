@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class HNYAppDelegate;
+
+/*!
+ *  Gets the global application delegate.
+ */
+HNYAppDelegate* AppDelegate();
+
 @interface HNYAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

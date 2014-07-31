@@ -12,6 +12,10 @@
 #import "HNFellow.h"
 #import "HNYear.h"
 
+HNYAppDelegate* AppDelegate()
+{
+    return (HNYAppDelegate*) [[UIApplication sharedApplication] delegate];
+}
 
 @implementation HNYAppDelegate
 
