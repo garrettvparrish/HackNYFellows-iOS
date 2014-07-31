@@ -1,116 +1,119 @@
 //
-//  ViewController.m
-//  CRMotionViewDemo
+//  TableViewController.m
+//  HackNY
 //
-//  Created by Christian Roman on 06/02/14.
-//  Copyright (c) 2014 Christian Roman. All rights reserved.
+//  Created by KyleR on 7/30/14.
+//  Copyright (c) 2014 Heartwood Labs. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "CRMotionView.h"
-#import <QuartzCore/QuartzCore.h>
-#import <AVFoundation/AVFoundation.h>
-#import "ContentView.h"
-#import "UIImage+ImageEffects.h"
-#import "MenuView.h"
+#import "TableViewController.h"
 
-@interface ViewController ()
+@interface TableViewController ()
 
 @end
 
-@implementation ViewController
+@implementation TableViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithStyle:(UITableViewStyle)style
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithStyle:style];
     if (self) {
+        // Custom initialization
     }
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:YES];
-}
-
-- (void)motionViewWithImage:(int)value withXPos:(int)xPos withPerson:(NSString *)person
-{
-    motionView = [[CRMotionView alloc]initWithFrame:CGRectMake(xPos, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d%@", value+1, @".JPG"]]];
-    [motionView setContentView:imageView];
-    [sv addSubview:motionView];
-    
-    NSError *error;
-    NSString *strFileContent = [NSString stringWithContentsOfFile:[[NSBundle mainBundle]
-                                                                   pathForResource:[NSString stringWithFormat:@"%i", value+1] ofType: @"TXT"] encoding:NSUTF8StringEncoding error:&error];
-        
-    ContentView *cview = [[ContentView alloc] initWithFrame:CGRectMake(0, 0, 320, self.view.bounds.size.height)];
-    [cview.nameLabel setText:person];
-    [cview.textLabel setText:strFileContent];
-    [motionView addSubview:cview];
-    [cview update];
-    
-   }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    array = [[NSMutableArray alloc] initWithObjects:@"Calvin Chan", @"Jamis Johnson",@"Lisa Luo", @"Emily Zhang", @"Alex Wheeler", @"Garrett Parrish", @"Catherine Moresco", @"Patrick Facheris", @"Quinn Liu", @"Deepak Kumar", @"Kyle Ryan", @"Matt Condon", @"Walter Menendez", @"Kyle Johnson", @"Shyamal Ruparel", @"Sruti Modekurty", nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showMenu:) name:@"showMenu" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeMenu:) name:@"closeMenu" object:nil];
-
-
-    sv = [[UIScrollView alloc] initWithFrame:self.view.frame];
-    sv.pagingEnabled = YES;
-    int numberOfPages = 16;
-    [sv setDelegate:self];
-    sv.backgroundColor = [UIColor blackColor];
-    sv.contentSize = CGSizeMake(320*numberOfPages, self.view.bounds.size.height);
-    [self.view addSubview:sv];
-	
-    for (int i = 0; i < 16; i++) {
-        [self motionViewWithImage:i withXPos:320*i withPerson:[array objectAtIndex:i]];
-    }
-  
-}
-
-- (void)showMenu:(NSNotification *)notif {
-    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, [UIScreen mainScreen].scale);
-    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
     
-    NSLog(@"%@", image);
-    
-    view = [[MenuView alloc] initWithFrame:CGRectMake(0, 0, 320, self.view.bounds.size.height)];
-    view.imageView.image = [image applyBlurWithRadius:10.f tintColor:[UIColor clearColor] saturationDeltaFactor:1.0 maskImage:nil];
-    view.alpha = 0.0;
-    [self.view addSubview:view];
-    
-    [UIView animateWithDuration:0.5 animations:^(void) {
-        view.alpha = 1.0;
-    }];
-
-}
-
-- (void)closeMenu:(NSNotification *)notif {
-    [UIView animateWithDuration:0.5 animations:^(void) {
-        view.alpha = 0.0;
-    } completion:^(BOOL finished) {
-        [view removeFromSuperview];
-
-    }];
-}
-
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    currentPos = scrollView.contentOffset.x;
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+#warning Potentially incomplete method implementation.
+    // Return the number of sections.
+    return 0;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+#warning Incomplete method implementation.
+    // Return the number of rows in the section.
+    return 0;
+}
+
+/*
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    
+    // Configure the cell...
+    
+    return cell;
+}
+*/
+
+/*
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+*/
+
+/*
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }   
+}
+*/
+
+/*
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+{
+}
+*/
+
+/*
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the item to be re-orderable.
+    return YES;
+}
+*/
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

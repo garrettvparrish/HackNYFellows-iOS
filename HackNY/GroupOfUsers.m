@@ -1,13 +1,13 @@
 //
-//  TableViewController.h
+//  GroupOfUsers.m
 //  HackNY
 //
 //  Created by KyleR on 7/30/14.
 //  Copyright (c) 2014 Heartwood Labs. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "GroupOfUsers.h"
 
-@interface TableViewController : UITableViewController
+@implementation GroupOfUsers
 
 @end
