@@ -61,7 +61,7 @@ hnyAppDelegate* AppDelegate()
     return YES;
 }
 
-- (UIColor *)mainColor {
+- (UIColor *)hnyMainColor {
     return [UIColor colorWithRed:0.933 green:0.231 blue:0.165 alpha:1];
 }
 

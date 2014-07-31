@@ -15,7 +15,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.backgroundColor = [AppDelegate() mainColor];
+        self.backgroundColor = [AppDelegate() hnyMainColor];
         self.selectionStyle = UITableViewCellSelectionStyleGray;
         
         [self.textLabel setFrame:CGRectMake(30, 5, 260, 100)];

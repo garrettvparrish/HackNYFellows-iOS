@@ -33,8 +33,8 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     [self.tableView registerClass:[hnyMenuYearCell class] forCellReuseIdentifier:@"cell"];
-    self.tableView.separatorColor = [AppDelegate() mainColor];
-    self.view.backgroundColor = [AppDelegate() mainColor];
+    self.tableView.separatorColor = [AppDelegate() hnyMainColor];
+    self.view.backgroundColor = [AppDelegate() hnyMainColor];
     [self makePageViewerInBackground];
     
     faderLayer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, self.view.bounds.size.height+200)];
@@ -45,16 +45,6 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buttonSetHidden:) name:@"buttonSetHidden" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buttonSetVisible:) name:@"buttonSetVisible" object:nil];
-
-}
-
-- (void)showSection {
-    
-    [self.view bringSubviewToFront:yearMenu];
-    
-    [UIView animateWithDuration:0.5 animations:^(void) {
-        [yearMenu setContentOffset:CGPointMake(320, 0)];
-    }];
 
 }
 
@@ -112,14 +102,14 @@
     return 200;
 }
 
+// Header
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
-    view.backgroundColor = [AppDelegate() mainColor];
+    UIView *logoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
+    logoView.backgroundColor = [AppDelegate() hnyMainColor];
     UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(kLogoXPosition, kLogoTopPadding, 125, 120)];
     logo.image = [UIImage imageNamed:@"logo.png"];
-    [view addSubview:logo];
-    
+    [logoView addSubview:logo];
     
     faderLayer2 = [[UIView alloc] initWithFrame:CGRectMake(0, -200, 320, self.view.bounds.size.height+200)];
     faderLayer.backgroundColor = [UIColor blackColor];
@@ -127,7 +117,7 @@
     faderLayer.userInteractionEnabled = NO;
     [self.view addSubview:faderLayer];
     
-    return view;
+    return logoView;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -142,18 +132,24 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[AppDelegate() numberOfYearsOfHackNY] intValue];
+    return [[AppDelegate() hackNYYears] count];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
-    [self showSection];
+    [self.view bringSubviewToFront:yearMenu];
+    [UIView animateWithDuration:0.5 animations:^(void) {
+        [yearMenu setContentOffset:CGPointMake(320, 0)];
+    }];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:<#(NSString *)#>];
+                           
     cell.textLabel.text = [[AppDelegate() arrayOfYears] objectAtIndex:indexPath.row];
     return cell;
 }
