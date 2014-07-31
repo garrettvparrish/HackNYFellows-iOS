@@ -19,7 +19,6 @@
 		361010C8197F66C800B84791 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 361010C6197F66C800B84791 /* InfoPlist.strings */; };
 		361010CA197F66C800B84791 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 361010C9197F66C800B84791 /* main.m */; };
 		361010CE197F66C800B84791 /* HNYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 361010CD197F66C800B84791 /* HNYAppDelegate.m */; };
-		361010D1197F66C800B84791 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 361010CF197F66C800B84791 /* Main.storyboard */; };
 		361010D6197F66C800B84791 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 361010D5197F66C800B84791 /* Images.xcassets */; };
 		361010DD197F66C800B84791 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 361010DC197F66C800B84791 /* XCTest.framework */; };
 		361010DE197F66C800B84791 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 361010BD197F66C800B84791 /* Foundation.framework */; };
@@ -161,7 +160,6 @@
 		361010CB197F66C800B84791 /* HackNY-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackNY-Prefix.pch"; sourceTree = "<group>"; };
 		361010CC197F66C800B84791 /* HNYAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNYAppDelegate.h; sourceTree = "<group>"; };
 		361010CD197F66C800B84791 /* HNYAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNYAppDelegate.m; sourceTree = "<group>"; };
-		361010D0197F66C800B84791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		361010D5197F66C800B84791 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		361010DB197F66C800B84791 /* HackNYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackNYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		361010DC197F66C800B84791 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -320,7 +318,6 @@
 			children = (
 				361010CC197F66C800B84791 /* HNYAppDelegate.h */,
 				361010CD197F66C800B84791 /* HNYAppDelegate.m */,
-				361010CF197F66C800B84791 /* Main.storyboard */,
 				36E6002A1989F0A7007462BA /* ViewControllers and Views */,
 				36E6001E1989EEC3007462BA /* Objects */,
 				36BA6EBD19845DA000A81A57 /* External Libraries Used in App */,
@@ -614,7 +611,6 @@
 				36818A301984665E00D6C493 /* default.png in Resources */,
 				361010C8197F66C800B84791 /* InfoPlist.strings in Resources */,
 				36CA6C171984822C00BA4485 /* 8.TXT in Resources */,
-				361010D1197F66C800B84791 /* Main.storyboard in Resources */,
 				36CA6BFF19847CC900BA4485 /* 12.TXT in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -724,14 +720,6 @@
 				361010C7197F66C800B84791 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		361010CF197F66C800B84791 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				361010D0197F66C800B84791 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		361010E5197F66C800B84791 /* InfoPlist.strings */ = {
