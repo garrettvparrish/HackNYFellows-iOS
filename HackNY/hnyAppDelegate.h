@@ -22,4 +22,10 @@ hnyAppDelegate* AppDelegate();
 // array of year objects
 @property NSMutableDictionary *hackNYYears;
 
+- (UIColor *)mainColor;
+- (UIColor *)lightMainColor;
+- (NSNumber *)currentYear;
+- (NSNumber *)numberOfYearsOfHackNY;
+- (NSMutableArray *)arrayOfYears;
+
 @end

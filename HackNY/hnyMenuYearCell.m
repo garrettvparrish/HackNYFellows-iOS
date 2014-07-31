@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 HackNY All rights reserved.
 //
 
-#import "TableViewCell.h"
-#import "KRStandardStuff.h"
+#import "hnyAppDelegate.h"
+#import "hnyMenuYearCell.h"
 
-@implementation TableViewCell
+@implementation hnyMenuYearCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.backgroundColor = [KRStandardStuff mainColor];
+        self.backgroundColor = [AppDelegate() mainColor];
         self.selectionStyle = UITableViewCellSelectionStyleGray;
         
         [self.textLabel setFrame:CGRectMake(30, 5, 260, 100)];

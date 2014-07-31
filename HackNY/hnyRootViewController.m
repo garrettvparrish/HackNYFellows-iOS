@@ -7,8 +7,8 @@
 //
 
 #import "hnyRootViewController.h"
-#import "TableViewCell.h"
-#import "KRStandardStuff.h"
+#import "hnyMenuYearCell.h"
+#import "hnyAppDelegate.h"
 #import "MainViewController.h"
 
 #define kLogoXPosition 160-(250/4)
@@ -32,9 +32,9 @@
 {
     [super viewDidLoad];
     self.tableView.delegate = self;
-    [self.tableView registerClass:[TableViewCell class] forCellReuseIdentifier:@"cell"];
-    self.tableView.separatorColor = [KRStandardStuff mainColor];
-    self.view.backgroundColor = [KRStandardStuff mainColor];
+    [self.tableView registerClass:[hnyMenuYearCell class] forCellReuseIdentifier:@"cell"];
+    self.tableView.separatorColor = [AppDelegate() mainColor];
+    self.view.backgroundColor = [AppDelegate() mainColor];
     [self makePageViewerInBackground];
     
     faderLayer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, self.view.bounds.size.height+200)];
@@ -117,7 +117,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
-    view.backgroundColor = [KRStandardStuff mainColor];
+    view.backgroundColor = [AppDelegate() mainColor];
     UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(kLogoXPosition, kLogoTopPadding, 125, 120)];
     logo.image = [UIImage imageNamed:@"logo.png"];
     [view addSubview:logo];
@@ -144,7 +144,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[KRStandardStuff numberOfYearsOfHackNY] intValue];
+    return [[AppDelegate() numberOfYearsOfHackNY] intValue];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -156,7 +156,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.textLabel.text = [[KRStandardStuff arrayOfYears] objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[AppDelegate() arrayOfYears] objectAtIndex:indexPath.row];
     return cell;
 }
 
