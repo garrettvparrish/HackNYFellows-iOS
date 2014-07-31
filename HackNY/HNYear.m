@@ -7,7 +7,16 @@
 //
 
 #import "HNYear.h"
+#import <Parse/Parse.h>
 
 @implementation HNYear
+
+- (id) initWithFellows: (NSMutableArray *) fellows {
+    self = [super init];
+    if (self) {
+        self.fellows = fellows;
+    }
+    return self;
+}
 
 @end

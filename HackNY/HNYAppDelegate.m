@@ -25,20 +25,24 @@
     [query whereKey:@"approved" equalTo:@YES];
     [query findObjectsInBackgroundWithBlock:^(NSArray *fellows, NSError *error) {
         if (!error) {
-            NSMutableDictionary *hackNYYears = [[NSMutableDictionary alloc] init];
+            
+            NSMutableDictionary *hackNYFellowLists = [[NSMutableDictionary alloc] init];
             for (PFObject *fellow in fellows) {
 
                 NSNumber *year = [NSNumber numberWithInt:[[fellow objectForKey:@"year"] intValue]];
                 NSString *yearKey = [NSString stringWithFormat:@"%i", [year intValue]];
-                if (![hackNYYears objectForKey:yearKey]) {
-                    [hackNYYears setObject:[[NSMutableArray alloc] init] forKey:yearKey];
+                if (![hackNYFellowLists objectForKey:yearKey]) {
+                    [hackNYFellowLists setObject:[[NSMutableArray alloc] init] forKey:yearKey];
                 }
-                [[hackNYYears objectForKey:yearKey] addObject:fellow];
-
-                HNYear *HNYear = [[HNYear alloc] init];
-                [HNYear addObject:[HNFellow configureUserWithPFObject:object]];
+                [[hackNYFellowLists objectForKey:yearKey] addObject:fellow];
             }
+
+            [hackNYFellowLists enumerateKeysAndObjectsUsingBlock: ^(NSString *year, NSMutableArray *fellowList, BOOL *stop) {
+                [self.hackNYYears setObject:[[HNYear alloc] initWithFellows:fellowList] forKey:year];
+            }];
+            
         }
+
     }];
    
     return YES;

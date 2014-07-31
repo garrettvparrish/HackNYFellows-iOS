@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HNYear : NSMutableArray
+@interface HNYear : NSObject
+
+@property NSMutableArray *fellows;
+
+- (id) initWithFellows: (NSMutableArray *) fellows;
 
 @end

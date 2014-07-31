@@ -12,4 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+// array of year objects
+@property NSMutableDictionary *hackNYYears;
+
 @end
