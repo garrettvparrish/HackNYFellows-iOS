@@ -1,23 +1,23 @@
 //
-//  HNYAppDelegate.m
+//  hnyAppDelegate.m
 //  HackNY
 //
 //  Created by KyleR on 7/22/14.
-//  Copyright (c) 2014 Heartwood Labs. All rights reserved.
+//  Copyright (c) 2014 HackNY All rights reserved.
 //
 
-#import "HNYAppDelegate.h"
+#import "hnyAppDelegate.h"
 #import "MainViewController.h"
 #import <Parse/Parse.h>
-#import "HNFellow.h"
-#import "HNYear.h"
+#import "hnyFellow.h"
+#import "hnyYear.h"
 
-HNYAppDelegate* AppDelegate()
+hnyAppDelegate* AppDelegate()
 {
-    return (HNYAppDelegate*) [[UIApplication sharedApplication] delegate];
+    return (hnyAppDelegate*) [[UIApplication sharedApplication] delegate];
 }
 
-@implementation HNYAppDelegate
+@implementation hnyAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -42,7 +42,7 @@ HNYAppDelegate* AppDelegate()
             }
 
             [hackNYFellowLists enumerateKeysAndObjectsUsingBlock: ^(NSString *year, NSMutableArray *fellowList, BOOL *stop) {
-                [self.hackNYYears setObject:[[HNYear alloc] initWithFellows:fellowList] forKey:year];
+                [self.hackNYYears setObject:[[hnyYear alloc] initWithFellows:fellowList] forKey:year];
             }];
         }
     }];

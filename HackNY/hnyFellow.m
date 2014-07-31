@@ -3,16 +3,16 @@
 //  HackNY
 //
 //  Created by KyleR on 7/30/14.
-//  Copyright (c) 2014 Heartwood Labs. All rights reserved.
+//  Copyright (c) 2014 HackNY All rights reserved.
 //
 
-#import "HNFellow.h"
+#import "hnyFellow.h"
 #import <Parse/Parse.h>
 
-@implementation HNFellow
+@implementation hnyFellow
 
-+ (HNFellow *)configureUserWithPFObject:(PFObject *)object {
-    HNFellow *user = [[HNFellow alloc] init];
++ (hnyFellow *)configureUserWithPFObject:(PFObject *)object {
+    hnyFellow *user = [[hnyFellow alloc] init];
     user.objectID = object.objectId;
     user.school = object[@"school"];
     user.company = object[@"company"];
