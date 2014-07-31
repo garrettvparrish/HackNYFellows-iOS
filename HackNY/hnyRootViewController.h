@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MainViewController.h"
 
-@interface ViewController : UITableViewController {
+@interface hnyRootViewController : UITableViewController {
     UIScrollView *sv;
     UIView *faderLayer;
     UIView *faderLayer2;

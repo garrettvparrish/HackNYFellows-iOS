@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 #import "hnyFellow.h"
 #import "hnyYear.h"
+#import "hnyRootViewController.h"
 
 hnyAppDelegate* AppDelegate()
 {
@@ -21,6 +22,16 @@ hnyAppDelegate* AppDelegate()
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // main initializations
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    hnyRootViewController *rootViewController = [[hnyRootViewController alloc] init];
+    self.window.rootViewController = rootViewController;
+    
+    self.window.backgroundColor = [UIColor blackColor];
+    [self.window makeKeyAndVisible];
+
+    // parse
     [Parse setApplicationId:@"ak54Y7fvYqULpElUjAyWgb4oTB6hRXL3bzOUQlC7"
                   clientKey:@"l2qrTMDjP5mHNjZJ3AeBMaoq7qhaVICVur7YV92r"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];

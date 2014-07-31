@@ -1,5 +1,5 @@
 //
-//  Users.h
+//  hnyFellow.h
 //  HackNY
 //
 //  Created by KyleR on 7/30/14.

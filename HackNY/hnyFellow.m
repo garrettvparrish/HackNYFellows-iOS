@@ -1,5 +1,5 @@
 //
-//  Users.m
+//  hnyFellow.m
 //  HackNY
 //
 //  Created by KyleR on 7/30/14.

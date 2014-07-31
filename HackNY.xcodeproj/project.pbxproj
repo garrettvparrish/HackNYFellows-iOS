@@ -122,8 +122,8 @@
 		36CE80BD1989B99700FDECFA /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 36CE80BA1989B99700FDECFA /* background.png */; };
 		36CE80BE1989B99700FDECFA /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 36CE80BB1989B99700FDECFA /* page.png */; };
 		36CE80BF1989B99700FDECFA /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 36CE80BB1989B99700FDECFA /* page.png */; };
-		36E6001C1989ED76007462BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E6001B1989ED76007462BA /* ViewController.m */; };
-		36E6001D1989ED76007462BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E6001B1989ED76007462BA /* ViewController.m */; };
+		36E6001C1989ED76007462BA /* hnyRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E6001B1989ED76007462BA /* hnyRootViewController.m */; };
+		36E6001D1989ED76007462BA /* hnyRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E6001B1989ED76007462BA /* hnyRootViewController.m */; };
 		36E600211989EED2007462BA /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E600201989EED2007462BA /* TableViewCell.m */; };
 		36E600221989EED2007462BA /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E600201989EED2007462BA /* TableViewCell.m */; };
 		36E600271989F00A007462BA /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 36E600261989F00A007462BA /* logo.png */; };
@@ -225,8 +225,8 @@
 		36CA6C31198484A400BA4485 /* 1.TXT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.TXT; sourceTree = "<group>"; };
 		36CE80BA1989B99700FDECFA /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		36CE80BB1989B99700FDECFA /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
-		36E6001A1989ED76007462BA /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		36E6001B1989ED76007462BA /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		36E6001A1989ED76007462BA /* hnyRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hnyRootViewController.h; sourceTree = "<group>"; };
+		36E6001B1989ED76007462BA /* hnyRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hnyRootViewController.m; sourceTree = "<group>"; };
 		36E6001F1989EED2007462BA /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
 		36E600201989EED2007462BA /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		36E600261989F00A007462BA /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
@@ -477,8 +477,8 @@
 		36E600291989F093007462BA /* Launch Screen */ = {
 			isa = PBXGroup;
 			children = (
-				36E6001A1989ED76007462BA /* ViewController.h */,
-				36E6001B1989ED76007462BA /* ViewController.m */,
+				36E6001A1989ED76007462BA /* hnyRootViewController.h */,
+				36E6001B1989ED76007462BA /* hnyRootViewController.m */,
 				36E6001F1989EED2007462BA /* TableViewCell.h */,
 				36E600201989EED2007462BA /* TableViewCell.m */,
 			);
@@ -670,7 +670,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36E6002D1989F33C007462BA /* KRStandardStuff.m in Sources */,
-				36E6001C1989ED76007462BA /* ViewController.m in Sources */,
+				36E6001C1989ED76007462BA /* hnyRootViewController.m in Sources */,
 				36E600211989EED2007462BA /* TableViewCell.m in Sources */,
 				361010CE197F66C800B84791 /* hnyAppDelegate.m in Sources */,
 				36CA6BE419846A5600BA4485 /* CRMotionView.m in Sources */,
@@ -694,7 +694,7 @@
 				361010E9197F66C800B84791 /* HackNYTests.m in Sources */,
 				36E600221989EED2007462BA /* TableViewCell.m in Sources */,
 				3681E2231985D8B20001A211 /* MenuView.m in Sources */,
-				36E6001D1989ED76007462BA /* ViewController.m in Sources */,
+				36E6001D1989ED76007462BA /* hnyRootViewController.m in Sources */,
 				360139C81989E5B30088EA5E /* hnyFellow.m in Sources */,
 				360139C41989E52F0088EA5E /* MainViewController.m in Sources */,
 				36CA6BE719846A5600BA4485 /* UIScrollView+CRScrollIndicator.m in Sources */,

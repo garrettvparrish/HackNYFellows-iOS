@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 HackNY All rights reserved.
 //
 
-#import "ViewController.h"
+#import "hnyRootViewController.h"
 #import "TableViewCell.h"
 #import "KRStandardStuff.h"
 #import "MainViewController.h"
@@ -14,11 +14,11 @@
 #define kLogoXPosition 160-(250/4)
 #define kLogoTopPadding (200/2)-60
 
-@interface ViewController ()
+@interface hnyRootViewController ()
 
 @end
 
-@implementation ViewController
+@implementation hnyRootViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
