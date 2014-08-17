@@ -11,8 +11,6 @@
 
 @interface hnyRootViewController : UITableViewController {
     UIScrollView *yearMenu;
-    UIView *faderLayer;
-    UIView *faderLayer2;
     UIButton *menu;
 }
 

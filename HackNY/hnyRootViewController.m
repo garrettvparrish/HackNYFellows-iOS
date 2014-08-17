@@ -39,12 +39,7 @@
 
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRefreshed:) name:@"dataRefreshed" object:nil];
-    
-    faderLayer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, self.view.bounds.size.height+200)];
-    faderLayer.backgroundColor = [UIColor blackColor];
-    faderLayer.alpha = 0.0;
-    faderLayer.userInteractionEnabled = NO;
-    [self.view addSubview:faderLayer];
+
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buttonSetHidden:) name:@"buttonSetHidden" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buttonSetVisible:) name:@"buttonSetVisible" object:nil];
@@ -113,13 +108,7 @@
     UIImageView *logo = [[UIImageView alloc] initWithFrame:CGRectMake(kLogoXPosition, kLogoTopPadding, 125, 120)];
     logo.image = [UIImage imageNamed:@"logo.png"];
     [logoView addSubview:logo];
-    
-    faderLayer2 = [[UIView alloc] initWithFrame:CGRectMake(0, -200, 320, self.view.bounds.size.height+200)];
-    faderLayer.backgroundColor = [UIColor blackColor];
-    faderLayer.alpha = 0.0;
-    faderLayer.userInteractionEnabled = NO;
-    [self.view addSubview:faderLayer];
-    
+
     return logoView;
 }
 
@@ -156,8 +145,6 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     float value = (320-scrollView.contentOffset.x)/320;
-    faderLayer.alpha = 0.7-value;
-    faderLayer2.alpha = 0.7-value;
     
     if (value > 0.99) {
         [self.view sendSubviewToBack:yearMenu];

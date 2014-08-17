@@ -35,7 +35,7 @@
     black.alpha = 0.2;
     [contentScroll addSubview:black];
     
-    nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, self.bounds.size.height-100, 280, 250)];
+    nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, self.bounds.size.height-90, 280, 250)];
     [nameLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:55]];
     [nameLabel setTextColor:[UIColor whiteColor]];
     nameLabel.numberOfLines = 0;
