@@ -129,6 +129,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.tableView setContentOffset:CGPointMake(0, 0)];
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
     [self.view bringSubviewToFront:yearMenu];
     [UIView animateWithDuration:0.5 animations:^(void) {
@@ -144,6 +145,7 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
     float value = (320-scrollView.contentOffset.x)/320;
     
     if (value > 0.99) {
