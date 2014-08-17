@@ -36,6 +36,9 @@
     self.tableView.separatorColor = [AppDelegate() hnyMainColor];
     self.view.backgroundColor = [AppDelegate() hnyMainColor];
     [self makePageViewerInBackground];
+
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRefreshed:) name:@"dataRefreshed" object:nil];
     
     faderLayer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, self.view.bounds.size.height+200)];
     faderLayer.backgroundColor = [UIColor blackColor];
@@ -51,7 +54,7 @@
 - (void)makePageViewerInBackground {
     [self.tableView setContentOffset:CGPointMake(0, 0)];
 
-    yearMenu = [[UIScrollView alloc] initWithFrame:self.view.frame];
+    yearMenu = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, self.view.bounds.size.height)];
     yearMenu.contentSize = CGSizeMake(320*2, self.view.bounds.size.height);
     yearMenu.pagingEnabled = YES;
     [yearMenu setDelegate:self];
@@ -79,16 +82,16 @@
     menu = [UIButton buttonWithType:UIButtonTypeCustom];
     [menu setImage:[UIImage imageNamed:@"menu.png"] forState:UIControlStateNormal];
     [menu setImage:[UIImage imageNamed:@"menuDark.png"] forState:UIControlStateHighlighted];
-    [menu setFrame:CGRectMake(25, 20, 30, 30)];
+    [menu setFrame:CGRectMake(320+25, 20, 30, 30)];
     [menu addTarget:self action:@selector(menu:) forControlEvents:UIControlEventTouchUpInside];
-    [view addSubview:menu];
+    [yearMenu addSubview:menu];
     
     [self.view sendSubviewToBack:yearMenu];
 }
 
 - (void)menu:(id)sender {
     [UIView animateWithDuration:0.5 animations:^(void) {
-        [yearMenu setContentOffset:CGPointMake(0,0)];
+        [yearMenu setContentOffset:CGPointMake(320,0)];
     } completion:^(BOOL finished) {
         [self.view sendSubviewToBack:yearMenu];
         
@@ -132,7 +135,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[AppDelegate() hackNYYears] count];
+    return [[AppDelegate() arrayOfYears] count];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -147,9 +150,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-
-    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:<#(NSString *)#>];
-                           
     cell.textLabel.text = [[AppDelegate() arrayOfYears] objectAtIndex:indexPath.row];
     return cell;
 }
@@ -174,6 +174,12 @@
     [UIView animateWithDuration:0.4 animations:^(void) {
         menu.alpha = 1.0;
     }];
+}
+
+#pragma notification methods 
+
+- (void)dataRefreshed:(NSNotification *)notif {
+    [self.tableView reloadData];
 }
 
 @end

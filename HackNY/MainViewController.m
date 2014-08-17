@@ -13,6 +13,8 @@
 #import "ContentView.h"
 #import "UIImage+ImageEffects.h"
 #import "MenuView.h"
+#import "hnyAppDelegate.h"
+#import <Parse/Parse.h>
 
 @interface MainViewController ()
 
@@ -32,20 +34,18 @@
     [super viewWillAppear:YES];
 }
 
-- (void)motionViewWithImage:(int)value withXPos:(int)xPos withPerson:(NSString *)person
+- (void)motionViewWithImage:(int)value withXPos:(int)xPos
 {
+    PFObject *fellow = [[[AppDelegate() getDataSource] objectForKey:@"2014"] objectAtIndex:value];
+
     motionView = [[CRMotionView alloc]initWithFrame:CGRectMake(xPos, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d%@", value+1, @".JPG"]]];
-    [motionView setContentView:imageView];
+   // [motionView setImage:[UIImage imageWithData:pngData]];
     [sv addSubview:motionView];
     
-    NSError *error;
-    NSString *strFileContent = [NSString stringWithContentsOfFile:[[NSBundle mainBundle]
-                                                                   pathForResource:[NSString stringWithFormat:@"%i", value+1] ofType: @"TXT"] encoding:NSUTF8StringEncoding error:&error];
-    
     ContentView *cview = [[ContentView alloc] initWithFrame:CGRectMake(0, 0, 320, self.view.bounds.size.height)];
-    [cview.nameLabel setText:person];
-    [cview.textLabel setText:strFileContent];
+    NSLog(@"fellow image %@", [UIImage imageWithData:[fellow[@"image"] getData]]);
+    cview.nameLabel.text = fellow[@"name"];
+    cview.textLabel.text = [NSString stringWithFormat:@"Goes to %@\n\n%@%@%@%@%@", fellow[@"school"], fellow[@"q1"],fellow[@"q2"],fellow[@"q3"],fellow[@"q4"], fellow[@"q5"]];
     [motionView addSubview:cview];
     [cview update];
     
@@ -54,33 +54,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    array = [[NSMutableArray alloc] initWithObjects:@"Calvin Chan", @"Jamis Johnson",@"Lisa Luo", @"Emily Zhang", @"Alex Wheeler", @"Garrett Parrish", @"Catherine Moresco", @"Patrick Facheris", @"Quinn Liu", @"Deepak Kumar", @"Kyle Ryan", @"Matt Condon", @"Walter Menendez", @"Kyle Johnson", @"Shyamal Ruparel", @"Sruti Modekurty", nil];
-    
+        
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeMenu:) name:@"closeMenu" object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRefreshed:) name:@"dataRefreshed" object:nil];
     
-    sv = [[UIScrollView alloc] initWithFrame:self.view.frame];
-    sv.pagingEnabled = YES;
-    int numberOfPages = 16;
-    [sv setDelegate:self];
-    sv.backgroundColor = [UIColor blackColor];
-    sv.contentSize = CGSizeMake(320*numberOfPages, self.view.bounds.size.height);
-    [self.view addSubview:sv];
-	
-    for (int i = 0; i < 16; i++) {
-        [self motionViewWithImage:i withXPos:320*i withPerson:[array objectAtIndex:i]];
-    }
-    
-}
-
-- (void)closeMenu:(NSNotification *)notif {
-    [UIView animateWithDuration:0.5 animations:^(void) {
-        menu.view.alpha = 0.0;
-    } completion:^(BOOL finished) {
-        [menu.view removeFromSuperview];
-        
-    }];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -92,4 +70,29 @@
     [super didReceiveMemoryWarning];
 }
 
+#pragma notifications
+
+- (void)dataRefreshed:(NSNotification *)notif {
+    
+    [sv removeFromSuperview];
+    sv = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, self.view.bounds.size.height)];
+    sv.pagingEnabled = YES;
+    [sv setDelegate:self];
+    sv.backgroundColor = [UIColor blackColor];
+    sv.contentSize = CGSizeMake(320*(int)[[[AppDelegate() getDataSource] objectForKey:@"2014"] count], self.view.bounds.size.height);
+    [self.view addSubview:sv];
+    
+    for (int i = 0; i < [[[AppDelegate() getDataSource] objectForKey:@"2014"] count]; i++) {
+        [self motionViewWithImage:i withXPos:320*i];
+    }
+}
+
+- (void)closeMenu:(NSNotification *)notif {
+    [UIView animateWithDuration:0.5 animations:^(void) {
+        menu.view.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        [menu.view removeFromSuperview];
+        
+    }];
+}
 @end

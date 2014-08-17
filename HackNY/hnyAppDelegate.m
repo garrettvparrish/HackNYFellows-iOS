@@ -36,25 +36,32 @@ hnyAppDelegate* AppDelegate()
                   clientKey:@"l2qrTMDjP5mHNjZJ3AeBMaoq7qhaVICVur7YV92r"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"fellows"];
+    PFQuery *query = [PFQuery queryWithClassName:@"fellow"];
     [query whereKey:@"approved" equalTo:@YES];
+    query.cachePolicy = kPFCachePolicyNetworkElseCache;
     [query findObjectsInBackgroundWithBlock:^(NSArray *fellows, NSError *error) {
         if (!error) {
             
-            NSMutableDictionary *hackNYFellowLists = [[NSMutableDictionary alloc] init];
+            NSLog(@"Downloaded Data without error");
+            
+            self.hackNYFellowLists = [[NSMutableDictionary alloc] init];
+            
             for (PFObject *fellow in fellows) {
-
-                NSNumber *year = [NSNumber numberWithInt:[[fellow objectForKey:@"year"] intValue]];
+                
+                NSNumber *year = [NSNumber numberWithInt:[fellow[@"year"] intValue]];
                 NSString *yearKey = [NSString stringWithFormat:@"%i", [year intValue]];
-                if (![hackNYFellowLists objectForKey:yearKey]) {
-                    [hackNYFellowLists setObject:[[NSMutableArray alloc] init] forKey:yearKey];
+                if (![self.hackNYFellowLists objectForKey:yearKey]) {
+                    [self.hackNYFellowLists setObject:[[NSMutableArray alloc] init] forKey:yearKey];
                 }
-                [[hackNYFellowLists objectForKey:yearKey] addObject:fellow];
+                [[self.hackNYFellowLists objectForKey:yearKey] addObject:fellow];
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"dataRefreshed" object:nil];
             }
 
-            [hackNYFellowLists enumerateKeysAndObjectsUsingBlock: ^(NSString *year, NSMutableArray *fellowList, BOOL *stop) {
+            [self.hackNYFellowLists enumerateKeysAndObjectsUsingBlock: ^(NSString *year, NSMutableArray *fellowList, BOOL *stop) {
                 [self.hackNYYears setObject:[[hnyYear alloc] initWithFellows:fellowList] forKey:year];
             }];
+            
         }
     }];
    
@@ -89,5 +96,10 @@ hnyAppDelegate* AppDelegate()
     }
     return array;
 }
-							
+
+- (NSMutableDictionary *)getDataSource {
+    return self.hackNYFellowLists;
+}
+
+
 @end

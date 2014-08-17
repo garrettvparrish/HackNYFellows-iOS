@@ -7,6 +7,7 @@
 //
 
 #import "ContentView.h"
+#import <Parse/Parse.h>
 
 @implementation ContentView
 @synthesize nameLabel;
@@ -24,7 +25,6 @@
 
 - (void)start {
     
-    
     contentScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, self.bounds.size.height)];
     [contentScroll setDelegate:self];
     contentScroll.contentSize = CGSizeMake(320, self.bounds.size.height*3);
@@ -35,28 +35,21 @@
     black.alpha = 0.2;
     [contentScroll addSubview:black];
     
-    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, self.bounds.size.height)];
-    imageView.alpha = 0.0;
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
-    [self addSubview:imageView];
-
-    nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, self.bounds.size.height-130, 280, 250)];
+    nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, self.bounds.size.height-100, 280, 250)];
     [nameLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:55]];
     [nameLabel setTextColor:[UIColor whiteColor]];
     nameLabel.numberOfLines = 0;
     [contentScroll addSubview:nameLabel];
     
-    textLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, self.bounds.size.height-60, 280, 1000)];
+    textLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, self.bounds.size.height-45, 280, 1000)];
     [textLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:18]];
     [textLabel setTextColor:[UIColor whiteColor]];
     textLabel.numberOfLines = 0;
     [contentScroll addSubview:textLabel];
-
-    
-
 }
 
 - (void)update {
+
     [textLabel sizeToFit];
     [nameLabel sizeToFit];
     [contentScroll setContentSize:CGSizeMake(320, textLabel.bounds.size.height+self.bounds.size.height+45)];
