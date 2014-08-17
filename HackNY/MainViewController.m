@@ -50,7 +50,7 @@
     cview.clipsToBounds = YES;
     NSLog(@"fellow image %@", [UIImage imageWithData:[fellow[@"image"] getData]]);
     cview.nameLabel.text = (fellow[@"name"])?(fellow[@"name"]):@"";
-    cview.textLabel.text = [NSString stringWithFormat:@"Goes to %@\n\n%@%@%@%@%@", (fellow[@"school"])?(fellow[@"school"]):@"", (fellow[@"q1"])?(fellow[@"q1"]):@"",(fellow[@"q2"])?(fellow[@"q2"]):@"",(fellow[@"q3"])?(fellow[@"q3"]):@"",(fellow[@"q4"])?(fellow[@"q4"]):@"", (fellow[@"q5"])?(fellow[@"q5"]):@""];
+    cview.textLabel.text = [NSString stringWithFormat:@"Goes to %@\n\n%@\n\n%@\n\n%@\n\n%@\n\n%@", (fellow[@"school"])?(fellow[@"school"]):@"", (fellow[@"q1"])?(fellow[@"q1"]):@"",(fellow[@"q2"])?(fellow[@"q2"]):@"",(fellow[@"q3"])?(fellow[@"q3"]):@"",(fellow[@"q4"])?(fellow[@"q4"]):@"", (fellow[@"q5"])?(fellow[@"q5"]):@""];
     [sv addSubview:cview];
     [cview update];
     
@@ -82,6 +82,7 @@
     [sv removeFromSuperview];
     sv = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, self.view.bounds.size.height)];
     sv.pagingEnabled = YES;
+    sv.bounces = NO;
     [sv setDelegate:self];
     sv.backgroundColor = [UIColor blackColor];
     sv.contentSize = CGSizeMake(320*(int)[[[AppDelegate() getDataSource] objectForKey:@"2014"] count], self.view.bounds.size.height);
