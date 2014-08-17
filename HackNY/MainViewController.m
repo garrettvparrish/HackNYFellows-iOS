@@ -49,8 +49,8 @@
     ContentView *cview = [[ContentView alloc] initWithFrame:CGRectMake(320*value, 0, 320, self.view.bounds.size.height)];
     cview.clipsToBounds = YES;
     NSLog(@"fellow image %@", [UIImage imageWithData:[fellow[@"image"] getData]]);
-    cview.nameLabel.text = fellow[@"name"];
-    cview.textLabel.text = [NSString stringWithFormat:@"Goes to %@\n\n%@%@%@%@%@", fellow[@"school"], fellow[@"q1"],fellow[@"q2"],fellow[@"q3"],fellow[@"q4"], fellow[@"q5"]];
+    cview.nameLabel.text = (fellow[@"name"])?(fellow[@"name"]):@"";
+    cview.textLabel.text = [NSString stringWithFormat:@"Goes to %@\n\n%@%@%@%@%@", (fellow[@"school"])?(fellow[@"school"]):@"", (fellow[@"q1"])?(fellow[@"q1"]):@"",(fellow[@"q2"])?(fellow[@"q2"]):@"",(fellow[@"q3"])?(fellow[@"q3"]):@"",(fellow[@"q4"])?(fellow[@"q4"]):@"", (fellow[@"q5"])?(fellow[@"q5"]):@""];
     [sv addSubview:cview];
     [cview update];
     
