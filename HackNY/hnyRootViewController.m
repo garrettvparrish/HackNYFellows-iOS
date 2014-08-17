@@ -52,6 +52,7 @@
     yearMenu = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, self.view.bounds.size.height)];
     yearMenu.contentSize = CGSizeMake(320*2, self.view.bounds.size.height);
     yearMenu.pagingEnabled = YES;
+    yearMenu.bounces = NO;
     [yearMenu setDelegate:self];
     [yearMenu setShowsHorizontalScrollIndicator:NO];
     [self.view addSubview:yearMenu];
