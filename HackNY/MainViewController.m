@@ -38,15 +38,20 @@
 {
     PFObject *fellow = [[[AppDelegate() getDataSource] objectForKey:@"2014"] objectAtIndex:value];
 
-    motionView = [[CRMotionView alloc]initWithFrame:CGRectMake(xPos, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-   // [motionView setImage:[UIImage imageWithData:pngData]];
-    [sv addSubview:motionView];
+    PFImageView *contentView = [[PFImageView alloc] initWithImage:[UIImage imageNamed:@"black.png"]];
+    contentView.frame = CGRectMake(320*value, 0, 320, self.view.bounds.size.height);
+    contentView.clipsToBounds = YES;
+    contentView.file = fellow[@"image"];
+    contentView.contentMode = UIViewContentModeScaleAspectFill;
+    [sv addSubview:contentView];
+    [contentView loadInBackground];
     
-    ContentView *cview = [[ContentView alloc] initWithFrame:CGRectMake(0, 0, 320, self.view.bounds.size.height)];
+    ContentView *cview = [[ContentView alloc] initWithFrame:CGRectMake(320*value, 0, 320, self.view.bounds.size.height)];
+    cview.clipsToBounds = YES;
     NSLog(@"fellow image %@", [UIImage imageWithData:[fellow[@"image"] getData]]);
     cview.nameLabel.text = fellow[@"name"];
     cview.textLabel.text = [NSString stringWithFormat:@"Goes to %@\n\n%@%@%@%@%@", fellow[@"school"], fellow[@"q1"],fellow[@"q2"],fellow[@"q3"],fellow[@"q4"], fellow[@"q5"]];
-    [motionView addSubview:cview];
+    [sv addSubview:cview];
     [cview update];
     
 }

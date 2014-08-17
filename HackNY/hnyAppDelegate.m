@@ -54,9 +54,9 @@ hnyAppDelegate* AppDelegate()
                     [self.hackNYFellowLists setObject:[[NSMutableArray alloc] init] forKey:yearKey];
                 }
                 [[self.hackNYFellowLists objectForKey:yearKey] addObject:fellow];
-                
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"dataRefreshed" object:nil];
             }
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"dataRefreshed" object:nil];
 
             [self.hackNYFellowLists enumerateKeysAndObjectsUsingBlock: ^(NSString *year, NSMutableArray *fellowList, BOOL *stop) {
                 [self.hackNYYears setObject:[[hnyYear alloc] initWithFellows:fellowList] forKey:year];
